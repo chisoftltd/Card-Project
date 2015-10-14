@@ -5,5 +5,8 @@ public class Computer extends Player{
 		super(name);
 		// TODO Auto-generated constructor stub
 	}
+	
+	public void whatDo (Deck deck) {
+		}
 
 }

@@ -1,19 +1,16 @@
 import java.util.Scanner;
 public class Human extends Player {
-
-
-	Scanner scan; //lätt att laga\\
+	Scanner scan;
 	public Human(String name) {
 		super(name);
 		scan = new Scanner(System.in);
 	}	
 
-	public void whatDo (Deck deck) /*And what not to do */{
-		//TODO
-		//OR NOT TODO
+	public void whatDo (Deck deck) {
+
 		while(true) {
-			System.out.println("What do mr, hit or stand? Enter h for hit s for stand ok fakr");
-			String line = scan.nextLine().toLowerCase(); //OMG
+			System.out.println("Choose what to do. 'Hit or Stand? (H/S)");
+			String line = scan.nextLine().toLowerCase();
 			if(line.equals("h")) {
 				hit(deck);
 				break;
@@ -23,12 +20,8 @@ public class Human extends Player {
 				break;
 			}
 			else{
-				System.out.println("fakr Wr0nK inpul");
+				System.out.println("Not a correct input");
 			}
 		}
-
-
-
 	}
-
 }

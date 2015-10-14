@@ -1,9 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
-//TODO  , saker som ska in i TODO:n !!!! <---- 
-// reserverat för framtida snilleblixtar 
-
 public class Deck {
 	private static final String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
 	ArrayList<Card> cardPack;
@@ -35,6 +32,7 @@ public class Deck {
 		Collections.shuffle(cardPack);
 	}
 
+	@Override
 	public String toString() {
 		String str = "";
 		for(Card card : cardPack) {
