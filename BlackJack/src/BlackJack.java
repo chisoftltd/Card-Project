@@ -2,10 +2,18 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+/* TODO
+ * Add Computer Player
+ * "Visuals" for CMD (print values, hands, etc)
+ * Dealer start with 1 card instead of 2 (BlackJack rules)
+ * Ability to make bets
+ * Add more Player actions from Black Jack rules (e.g split or double-down)
+ * Add more adaptability for different house rules
+ */
+
 public class BlackJack {
 	ArrayList<Player> players;
 	Deck deck;
-	Scanner scan = new Scanner(System.in);
 	Random rand = new Random();
 
 	public BlackJack() {
@@ -26,8 +34,8 @@ public class BlackJack {
 			do {
 				System.out.println("Would you like to play again? Y/N");
 				line = scan.nextLine();
-				line.toLowerCase();
-			} while (!line.equals("y") || !line.equals("n"));
+				line = line.toLowerCase();
+			} while (!line.equals("y") && !line.equals("n"));
 		}
 
 		scan.close();
@@ -41,7 +49,7 @@ public class BlackJack {
 			throw new IllegalArgumentException("No players");
 		}
 		for (int i = 0; i<numHPlayers; i++){
-			players.add(new Human(strQuestion("Player " + (i+1) + ": . Enter your name")));
+			players.add(new Human(strQuestion("Player " + (i+1) + ": Enter your name")));
 		}
 		for (int i = 0; i<numCPlayers; i++){
 			players.add(new Computer(randomName()));
@@ -53,31 +61,36 @@ public class BlackJack {
 
 	private int numQuestion (String input) {
 		int num = 0;
+		Scanner scanner = new Scanner(System.in);
 		while(true) {
 			System.out.println(input);
-			if(scan.hasNextInt()) {
-				num = scan.nextInt();
-				scan.next();
+			if(scanner.hasNextInt()) {
+				num = scanner.nextInt();
 				return num;
 			} else {
 				System.out.println("Invalid Selection.");
 				// Rensar buffern för system.in
-				scan.next();
+				scanner.next();
 			}
 		}
 	}
 
 	private String strQuestion (String input) {
 		System.out.println(input);
-		return scan.nextLine();
+		Scanner scanner = new Scanner(System.in);
+		return scanner.nextLine();
 	}
 
 	public void playRound() {
+		
+		
+		
 		deck.makeDeck(players.size());
 		deck.shuffle();
 
 		// Each player gets 2 cards
 		for (Player player : players) {
+			player.reset();
 			player.hit(deck);
 			player.hit(deck);
 		}
