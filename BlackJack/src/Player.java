@@ -61,9 +61,13 @@ public abstract class Player {
 
 	}
 	
-	public int getAces() {
+	protected int getAces() {
 		return numAces;
 	}
 
+	public void reset() {
+		hand.clear();
+		playing = true;
+	}
 
 }
