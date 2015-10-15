@@ -57,6 +57,7 @@ public class BlackJack {
 			System.out.println(input);
 			if(scan.hasNextInt()) {
 				num = scan.nextInt();
+				scan.next();
 				return num;
 			} else {
 				System.out.println("Invalid Selection.");
