@@ -1,21 +1,28 @@
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Random;
 
 public class Deck {
+	private Random rand;
 	private static final String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
-	ArrayList<Card> cardPack;
+	private ArrayList<Card> cardPack;
 
 	public Deck() {
 		cardPack = new ArrayList<Card>();
-		makeDeck();
+		rand = new Random();
+		makeDeck(0);
 	}
 
-	public void makeDeck() {
+	public void makeDeck(int num) {
 		cardPack.clear();
-		for(int i=0; i<13; i++){
-			for(int j=0; j<4; j++){
-				cardPack.add(new Card(suits[j], i+1));
 
+		//Make 1 deck for every four players
+		num = num / 5 + 1; 
+		for(int k=0; k<num; k++) {
+			for(int i=0; i<13; i++){
+				for(int j=0; j<4; j++){
+					cardPack.add(new Card(suits[j], i+1));
+
+				}
 			}
 		}
 	}
@@ -29,7 +36,14 @@ public class Deck {
 	}
 
 	public void shuffle() {
-		Collections.shuffle(cardPack);
+		Card tempCard;
+		int j;
+		for(int i = cardPack.size() - 1; i > 0; i--) {
+			j = rand.nextInt(i+1);
+			tempCard = cardPack.get(i);
+			cardPack.set(i, cardPack.get(j));
+			cardPack.set(j, tempCard);
+		}
 	}
 
 	@Override

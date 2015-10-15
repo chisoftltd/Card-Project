@@ -3,9 +3,8 @@ public class Dealer extends Player {
 	// Stand on 17 with ace as 11
 	boolean hitOnSoft = false;
 
-	public Dealer(String name) {
-		super(name);
-
+	public Dealer() {
+		super("Dealer");
 	}
 	
 	@Override

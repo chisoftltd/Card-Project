@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public abstract class Player {
 	private ArrayList<Card> hand;
 	private String name;
-	public boolean playing = true;
+	private boolean playing = true;
 	private int numAces = 0;
 
 	public abstract void whatDo (Deck deck);
@@ -25,10 +25,17 @@ public abstract class Player {
 
 	protected void hit(Deck deck) {
 		hand.add(deck.popCard());
+		if(getValue() >= 21) {
+			stand();
+		}
 	}
 
 	protected void stand() {
 		playing = false;
+	}
+	
+	public boolean isPlaying() {
+		return playing;
 	}
 
 	public int getValue() {
