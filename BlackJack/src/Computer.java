@@ -8,5 +8,4 @@ public class Computer extends Player{
 	
 	public void whatDo (Deck deck) {
 		}
-
 }

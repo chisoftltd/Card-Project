@@ -41,7 +41,7 @@ public class BlackJack {
 			throw new IllegalArgumentException("No players");
 		}
 		for (int i = 0; i<numHPlayers; i++){
-			players.add(new Human(strQuestion("Player: " + (i+1) + ". Enter your name")));
+			players.add(new Human(strQuestion("Player " + (i+1) + ": . Enter your name")));
 		}
 		for (int i = 0; i<numCPlayers; i++){
 			players.add(new Computer(randomName()));
