@@ -2,15 +2,6 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-/* TODO
- * Add Computer Player
- * "Visuals" for CMD (print values, hands, etc)
- * Dealer start with 1 card instead of 2 (BlackJack rules)
- * Ability to make bets
- * Add more Player actions from Black Jack rules (e.g split or double-down)
- * Add more adaptability for different house rules
- */
-
 public class BlackJack {
 	ArrayList<Player> players;
 	Deck deck;
@@ -23,11 +14,12 @@ public class BlackJack {
 
 	public static void main(String[] args) {
 		System.out.println("Welcome to Blackjack");
-
+		
 		BlackJack game = new BlackJack();
 		game.setup();
 		Scanner scan = new Scanner(System.in); 
-
+		
+		// Gameloop
 		String line = "y";
 		while(line.equals("y")) {
 			game.playRound();
@@ -41,6 +33,7 @@ public class BlackJack {
 		scan.close();
 	}
 
+	// Setup 
 	public void setup() {
 		final int numHPlayers = numQuestion("How many HUMAN players would you like?");
 		final int numCPlayers = numQuestion("How many COMPUTER players would you like?");
@@ -55,10 +48,14 @@ public class BlackJack {
 			players.add(new Computer(randomName()));
 		}
 		players.add(new Dealer());
-		// Reserved newlines for future code
-		// maybe money/bet code
+
 	}
 
+	/**
+	 * Tar in en String som "fråga" och ber användaren om en fråga som kan endast besvaras med en integer
+	 * @param input
+	 * @return  q  användarens svar
+	 */
 	private int numQuestion (String input) {
 		int num = 0;
 		Scanner scanner = new Scanner(System.in);
@@ -81,9 +78,8 @@ public class BlackJack {
 		return scanner.nextLine();
 	}
 
+	
 	public void playRound() {
-		
-		
 		
 		deck.makeDeck(players.size());
 		deck.shuffle();
@@ -95,14 +91,17 @@ public class BlackJack {
 			player.hit(deck);
 		}
 
+		// Frågar varje spelare vad dom vill göra tills dom "standar" eller förlorar
+		// Dealern är den sista spelaren
 		for (Player player : players) {
 			while(player.isPlaying()) {
 				player.whatDo(deck);
 			}
 		}
 
+		
 		Player dealer = players.get(players.size() - 1);
-		// If Dealer Busts all players not busted wins
+		// Om dealern bustar så vinner alla spelare som inte gått över 21
 		if (dealer.getValue() > 21) {
 			for (int i = 0; i<players.size()-1; i++) {
 				if (players.get(i).getValue() <= 21) {
@@ -122,6 +121,11 @@ public class BlackJack {
 		}
 	}
 
+    /**
+     * Slumpar fram ett namn efter logik: Varannan konsonant, varannan vokal (börjar på en slumpmässig) 
+     * och slumpmässig längd mellan minLength och maxLength
+     * @return ett random "name"
+     */
 	private String randomName() {
 		final int maxLength = 9;
 		final int minLength = 3;
