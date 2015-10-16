@@ -38,6 +38,11 @@ public abstract class Player {
 		return playing;
 	}
 
+	/**
+	 * Räknar ut värdet på en spelares hand och tar hänsyn till 
+	 * att ess kan både vara 11 och 1
+	 * @return värdet på spelares hand
+	 */
 	public int getValue() {
 		int value = 0;
 		numAces = 0;

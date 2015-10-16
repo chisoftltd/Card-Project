@@ -1,5 +1,6 @@
 public class Dealer extends Player {
 	
+	// TODO lägga till mer alternativ för olika house rules (rörande dealer)
 	// Stand on 17 with ace as 11
 	boolean hitOnSoft = false;
 

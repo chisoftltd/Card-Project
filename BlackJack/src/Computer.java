@@ -1,4 +1,6 @@
 
+// TODO - hela klassen (???)
+
 public class Computer extends Player{
 
 	public Computer(String name) {

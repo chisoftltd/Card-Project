@@ -6,7 +6,7 @@ public class Card {
 		this.suit = suit;
 		this.value = value;
 	}
-	
+
 	public String getSuit() {
 		return suit;
 	}
@@ -16,6 +16,9 @@ public class Card {
 	}
 
 	@Override
+	/*
+	  
+	 */
 	public String toString() {
 
 		String output = suit + " ";

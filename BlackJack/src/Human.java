@@ -6,6 +6,10 @@ public class Human extends Player {
 		scan = new Scanner(System.in);
 	}	
 
+	/*
+	 * Frågar spelaren efter vad hen vill göra och åberopar metoden hit / stand 
+	 * beroende på svar
+	 */
 	public void whatDo (Deck deck) {
 
 		while(true) {

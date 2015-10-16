@@ -12,6 +12,9 @@ public class Deck {
 		makeDeck(0);
 	}
 
+	/*
+	 * Gör decket (clearar det först)
+	 */
 	public void makeDeck(int num) {
 		cardPack.clear();
 
@@ -27,6 +30,9 @@ public class Deck {
 		}
 	}
 
+	/**
+	 * @return Sista elementet i kortleken // Motsvarar det översta kortet
+	 */
 	public Card popCard() {
 		if(!cardPack.isEmpty()){
 			return cardPack.remove(cardPack.size() - 1);}
@@ -35,6 +41,10 @@ public class Deck {
 		}
 	}
 
+	/*
+	 * Shufflar kortleken 
+	 * Går igenom varje element och byter ut med slumpvalt element
+	 */
 	public void shuffle() {
 		Card tempCard;
 		int j;
