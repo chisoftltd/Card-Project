@@ -11,7 +11,7 @@ public class BlackJack {
 		deck = new Deck();
 		players = new ArrayList<Player>();
 	}
-
+	
 	public static void main(String[] args) {
 		System.out.println("Welcome to Blackjack");
 		
@@ -35,11 +35,21 @@ public class BlackJack {
 
 	// Setup 
 	public void setup() {
+		Scanner reply = new Scanner(System.in);
 		final int numHPlayers = numQuestion("How many HUMAN players would you like?");
 		final int numCPlayers = numQuestion("How many COMPUTER players would you like?");
 
 		if ((numHPlayers+numCPlayers) == 0) {
-			throw new IllegalArgumentException("No players");
+			//throw new IllegalArgumentException("No players"); // Give user(s)/player(s) option to try again
+			System.out.println("You need player(s) to play this game! Want to try again?(Y/N) ");
+			String answer = reply.nextLine().toUpperCase();
+			if(answer.equal("Y")){
+				final int numHPlayers = numQuestion("How many HUMAN players would you like?");
+				final int numCPlayers = numQuestion("How many COMPUTER players would you like?");
+			} else{
+				System.out.println("Bye!");
+				System.exit(0);
+			}
 		}
 		for (int i = 0; i<numHPlayers; i++){
 			players.add(new Human(strQuestion("Player " + (i+1) + ": Enter your name")));
