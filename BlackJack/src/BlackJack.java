@@ -105,17 +105,17 @@ public class BlackJack {
 		if (dealer.getValue() > 21) {
 			for (int i = 0; i<players.size()-1; i++) {
 				if (players.get(i).getValue() <= 21) {
-					// player win
+					// TODO player win
 				} else {
-					// player lose
+					// TODO player lose
 				}
 			}
 		} else {
 			for (int i = 0; i<players.size()-1; i++) {
 				if (players.get(i).getValue() <= 21 && players.get(i).getValue() > dealer.getValue()) {
-					// player win
+					// TODO player win
 				} else {
-					// player lose
+					// TODO player lose
 				}
 			}
 		}
