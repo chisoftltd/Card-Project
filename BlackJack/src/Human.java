@@ -1,10 +1,10 @@
 import java.util.Scanner;
 public class Human extends Player {
 	Scanner scan;
-	public Human(String name) {
-		super(name);
+	public Human(String name, int age) {
+		super(name, age);
 		scan = new Scanner(System.in);
-	}	
+	}
 
 	/*
 	 * Frågar spelaren efter vad hen vill göra och åberopar metoden hit / stand 

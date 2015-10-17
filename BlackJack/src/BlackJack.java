@@ -36,23 +36,29 @@ public class BlackJack {
 	// Setup 
 	public void setup() {
 		Scanner reply = new Scanner(System.in);
-		final int numHPlayers = numQuestion("How many HUMAN players would you like?");
-		final int numCPlayers = numQuestion("How many COMPUTER players would you like?");
+		// final int numHPlayers = numQuestion("How many HUMAN players would you like?");
+		// final int numCPlayers = numQuestion("How many COMPUTER players would you like?");
+                
+        int numHPlayers = numQuestion("How many HUMAN players would you like?");
+		int numCPlayers = numQuestion("How many COMPUTER players would you like?");
+
 
 		if ((numHPlayers+numCPlayers) == 0) {
 			//throw new IllegalArgumentException("No players"); // Give user(s)/player(s) option to try again
 			System.out.println("You need player(s) to play this game! Want to try again?(Y/N) ");
 			String answer = reply.nextLine().toUpperCase();
-			if(answer.equal("Y")){
-				final int numHPlayers = numQuestion("How many HUMAN players would you like?");
-				final int numCPlayers = numQuestion("How many COMPUTER players would you like?");
+			if(answer.equals("Y")){
+				numHPlayers = numQuestion("How many HUMAN players would you like?");
+				numCPlayers = numQuestion("How many COMPUTER players would you like?");
 			} else{
 				System.out.println("Bye!");
 				System.exit(0);
 			}
 		}
+	
 		for (int i = 0; i<numHPlayers; i++){
-			players.add(new Human(strQuestion("Player " + (i+1) + ": Enter your name")));
+			//players.add(new Human(strQuestion("Player " + (i+1) + ": Enter your name")));
+			players.add(new Human(strQuestion("Player " + (i + 1) + ": Enter your name"), addAge()));
 		}
 		for (int i = 0; i<numCPlayers; i++){
 			players.add(new Computer(randomName()));
@@ -88,6 +94,11 @@ public class BlackJack {
 		return scanner.nextLine();
 	}
 
+    private int addAge() {
+        System.out.println("Enter your age: ");
+        Scanner acceptAge = new Scanner(System.in);
+        return acceptAge.nextInt();
+    }
 	
 	public void playRound() {
 		
@@ -95,6 +106,8 @@ public class BlackJack {
 		deck.shuffle();
 
 		// Each player gets 2 cards
+		// We need to keep count of cards dealt out to know when the deck is exhausted
+		// Vi måste hålla räkningen på kort som delas ut för att veta när däcket är uttömd
 		for (Player player : players) {
 			player.reset();
 			player.hit(deck);

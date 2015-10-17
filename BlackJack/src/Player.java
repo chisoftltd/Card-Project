@@ -1,18 +1,29 @@
 import java.util.ArrayList;
 
 public abstract class Player {
-	private ArrayList<Card> hand;
-	private String name;
-	private boolean playing = true;
-	private int numAces = 0;
 
-	public abstract void whatDo (Deck deck);
+    private ArrayList<Card> hand = new ArrayList<Card>();
+    private String name;
+    private int age;
+    private boolean playing = true;
+    private int numAces = 0;
 
-	public Player(String name) {
-		hand = new ArrayList<Card>();
-		this.name = name;
+    public abstract void whatDo(Deck deck);
 
-	}
+    public Player(String name, int age) {
+        // hand = new ArrayList<Card>();
+        this.name = name;
+        //this.age = age;
+        if (age < 18) {
+            System.out.println("You are too young. Bye!");
+            System.exit(0);
+        }
+    }
+	
+    public Player(String name) {
+        this.name = name;
+    }
+
 
 	public String toString() {
 		String str = name + "\n";
