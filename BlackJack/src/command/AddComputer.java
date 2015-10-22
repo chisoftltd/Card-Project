@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package command;
 
 import java.util.Random;
@@ -26,8 +31,8 @@ public class AddComputer implements Command {
 	}
 	
 	/**
-	 * Slumpar fram ett namn efter logik: Varannan konsonant, varannan vokal (bˆrjar pÂ en slumpm‰ssig) 
-	 * och slumpm‰ssig l‰ngd mellan minLength och maxLength
+	 * Slumpar fram ett namn efter logik: Varannan konsonant, varannan vokal (b√∂rjar p√• en slumpm√§ssig) 
+	 * och slumpm√§ssig l√§ngd mellan minLength och maxLength
 	 * @return ett random "name"
 	 */
 	private String randomName() {

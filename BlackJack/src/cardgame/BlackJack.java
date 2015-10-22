@@ -1,6 +1,11 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package cardgame;
+
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.Scanner;
 
 import command.AddComputer;
@@ -10,8 +15,16 @@ import command.Command;
 import command.Play;
 import command.Rules;
 
+/**
+ *
+ * @author Benjamin
+ */
 public class BlackJack {
-	private ArrayList<Player> players;
+
+    /**
+     * @param args the command line arguments
+     */
+    private ArrayList<Player> players;
 	private Deck deck;
 	private Dealer dealer;
 	
@@ -67,7 +80,7 @@ public class BlackJack {
 
 		// Each player gets 2 cards
 		// We need to keep count of cards dealt out to know when the deck is exhausted
-		// Vi måste hålla räkningen på kort som delas ut för att veta när däcket är uttömd
+		// Vi mÃ¥ste hÃ¥lla rÃ¤kningen pÃ¥ kort som delas ut fÃ¶r att veta nÃ¤r dÃ¤cket Ã¤r uttÃ¶md
 		for (Player player : players) {
 			player.reset();
 			player.hit(deck);
@@ -76,8 +89,8 @@ public class BlackJack {
 			
 		// TODO betloop
 		
-		// Frågar varje spelare vad dom vill göra tills dom "standar" eller förlorar
-		// Dealern är den sista spelaren
+		// FrÃ¥gar varje spelare vad dom vill gÃ¶ra tills dom "standar" eller fÃ¶rlorar
+		// Dealern Ã¤r den sista spelaren
 		// TODO dealer sluta spela om alla busts
 		for (Player player : players) {
 			while(player.isPlaying()) {
@@ -120,25 +133,25 @@ public class BlackJack {
 	public void printRules() {
 		
 		//TODO 
-		System.out.println("¤ The goal is to reach 21.");
-		System.out.println("¤ Every card 2-10 is valued as is.");
-		System.out.println("¤ Kings, Queens, Jacks are valued 10.");
-		System.out.println("¤ Aces are valued 1 or 11.");
-		System.out.println("¤ The dealer plays last.");
+		System.out.println("Â¤ The goal is to reach 21.");
+		System.out.println("Â¤ Every card 2-10 is valued as is.");
+		System.out.println("Â¤ Kings, Queens, Jacks are valued 10.");
+		System.out.println("Â¤ Aces are valued 1 or 11.");
+		System.out.println("Â¤ The dealer plays last.");
 		//Print houseruels
 		/*
-		 (" > Varje spelare ska inte ha mer än 5 kort") 
-		 (" > På en del bord så finns det över- och  under spel, då det finns två ringar under varje ruta 
-		 \ndå det står "O" (over) eller "U" (under)");
-		 (" > Får man två ess och har satsat underrutan så vinner man en och en halv insatsen");
-		 (" > I över- och under spel räknas ess som en poäng");
+		 (" > Varje spelare ska inte ha mer Ã¤n 5 kort") 
+		 (" > PÃ¥ en del bord sÃ¥ finns det Ã¶ver- och  under spel, dÃ¥ det finns tvÃ¥ ringar under varje ruta 
+		 \ndÃ¥ det stÃ¥r "O" (over) eller "U" (under)");
+		 (" > FÃ¥r man tvÃ¥ ess och har satsat underrutan sÃ¥ vinner man en och en halv insatsen");
+		 (" > I Ã¶ver- och under spel rÃ¤knas ess som en poÃ¤ng");
 		 */
 	}
 	
 	/**
-	 * Tar in en String som "fråga" och ber användaren om en fråga som kan endast besvaras med en integer
+	 * Tar in en String som "frÃ¥ga" och ber anvÃ¤ndaren om en frÃ¥ga som kan endast besvaras med en integer
 	 * @param input
-	 * @return  q  användarens svar
+	 * @return  q  anvÃ¤ndarens svar
 	 */
 	public int numQuestion (String input) {
 		int num = 0;
@@ -150,7 +163,7 @@ public class BlackJack {
 				return num;
 			} else {
 				System.out.println("Invalid Selection.");
-				// Rensar buffern för system.in
+				// Rensar buffern fÃ¶r system.in
 				scanner.next();
 			}
 		}

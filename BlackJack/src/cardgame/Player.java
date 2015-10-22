@@ -1,4 +1,10 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package cardgame;
+
 import java.util.ArrayList;
 
 public abstract class Player {
@@ -53,9 +59,9 @@ public abstract class Player {
 	}
 
 	/**
-	 * Räknar ut värdet på en spelares hand och tar hänsyn till 
-	 * att ess kan både vara 11 och 1
-	 * @return värdet på spelares hand
+	 * RÃ¤knar ut vÃ¤rdet pÃ¥ en spelares hand och tar hÃ¤nsyn till 
+	 * att ess kan bÃ¥de vara 11 och 1
+	 * @return vÃ¤rdet pÃ¥ spelares hand
 	 */
 	public int getValue() {
 		int value = 0;

@@ -1,7 +1,17 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package cardgame;
+
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ *
+ * @author Benjamin
+ */
 public class Deck {
 	private Random rand;
 	private static final String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
@@ -20,7 +30,7 @@ public class Deck {
 	}
 
 	/**
-	 * Gör decket (clearar det först)
+	 * GÃ¶r decket (clearar det fÃ¶rst)
 	 * @param num Antal spelare
 	 */
 	public void makeDeck(int num) {
@@ -39,7 +49,7 @@ public class Deck {
 	}
 
 	/**
-	 * @return Sista elementet i kortleken // Motsvarar det översta kortet
+	 * @return Sista elementet i kortleken // Motsvarar det Ã¶versta kortet
 	 */
 	public Card popCard() {
 		if(!cardPack.isEmpty()){
@@ -51,7 +61,7 @@ public class Deck {
 
 	/**
 	 * Shufflar kortleken 
-	 * Går igenom varje element och byter ut med slumpvalt element
+	 * GÃ¥r igenom varje element och byter ut med slumpvalt element
 	 */
 	public void shuffle() {
 		Card tempCard;

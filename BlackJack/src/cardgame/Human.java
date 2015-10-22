@@ -1,4 +1,14 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package cardgame;
+
+/**
+ *
+ * @author Benjamin
+ */
 import java.util.Scanner;
 public class Human extends Player {
 	Scanner scan;
@@ -8,10 +18,10 @@ public class Human extends Player {
 	}
 
 	/**
-	 * Frågar spelaren efter vad hen vill göra och åberopar metoden hit / stand 
-	 * beroende på svar
+	 * FrÃ¥gar spelaren efter vad hen vill gÃ¶ra och Ã¥beropar metoden hit / stand 
+	 * beroende pÃ¥ svar
 	 * @param deck Deck med kort
-	 * @param bl För rules
+	 * @param bl FÃ¶r rules
 	 */
 	public void whatDo (Deck deck, BlackJack bj) {
 		while(true) {
